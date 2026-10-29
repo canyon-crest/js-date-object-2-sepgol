@@ -72,7 +72,7 @@ document.getElementById("myDate").textContent = `${month}/${day}/${year}`;
 
 // STEP 11: Record the start time using new Date().getTime()
 //          This gives you the current time in milliseconds.
-const startTime = new Date().getTime();
+let startTime = new Date().getTime();
 // STEP 12: Create a variable to hold the timer ID (for stopping later).
 //          Use setInterval() with a delay of 10 milliseconds.
 //          Inside the interval function:
@@ -80,7 +80,7 @@ const startTime = new Date().getTime();
 //          b) Calculate elapsed seconds: (currentTime - startTime) / 1000
 //          c) Display the elapsed time using .toFixed(3)
 //             in the element with ID "myTimer"
-const timerId = setInterval(() => {
+let timerId = setInterval(() => {
   const currentTime = new Date().getTime();
   const elapsedSeconds = (currentTime - startTime) / 1000;
   document.getElementById("myTimer").textContent = elapsedSeconds.toFixed(3);
@@ -119,8 +119,7 @@ document.getElementById("myBtn").addEventListener("click", () => {
     clearInterval(timerId);
     document.getElementById("myBtn").innerHTML = "Start";
     running = false;
-  } 
-  else {
+  }  else {
     startTime = new Date().getTime(); // Assumes startTime was declared with let initially
     timerId = setInterval(() => {
       const currentTime = new Date().getTime();
